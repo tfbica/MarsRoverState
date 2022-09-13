@@ -1,12 +1,18 @@
 package com.codurance.katas.marsroverstate;
 
+import java.util.HashSet;
+
 public class MarsRover {
 
-    private final Position position = new Position(0, 0);
+    private Position position = new Position(0, 0);
     private Direction direction = new DirectionNorth(this);
+    private final Grid grid;
 
-    public Position getPosition() {
-        return position;
+    public MarsRover() {
+        this(new Grid(new HashSet<>()));
+    }
+    public MarsRover(Grid grid) {
+        this.grid = grid;
     }
 
     void setDirection(Direction direction) {
@@ -23,11 +29,20 @@ public class MarsRover {
                 direction.turnLeft();
             }
             if (command == 'M') {
-                position.add(direction.move());
+                Position newPosition = calculateNewPosition();
+                if (grid.hasObstacleAt(newPosition)) {
+                    return "O:" + position + ":" + direction;
+                }
+                position = newPosition;
             }
         }
 
         return position + ":" + direction;
     }
 
+    private Position calculateNewPosition() {
+        Position newPosition = new Position(position);
+        newPosition.add(direction.move());
+        return newPosition;
+    }
 }
