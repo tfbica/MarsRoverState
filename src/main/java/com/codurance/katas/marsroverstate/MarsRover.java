@@ -2,10 +2,8 @@ package com.codurance.katas.marsroverstate;
 
 public class MarsRover {
 
+    private final Position position = new Position(0, 0);
     private Direction direction = new DirectionNorth(this);
-
-    private int x = 0;
-    private int y = 0;
 
     public Direction getDirection() {
         return direction;
@@ -41,42 +39,24 @@ public class MarsRover {
             }
         }
 
-        return x + ":" + y + ":" + direction;
+        return position + ":" + direction;
     }
 
     private void move() {
         if (direction.toString().equals("N")) {
-            if(y == 9) {
-                this.y = 0;
-            } else {
-                this.y++;
-            }
+            position.increaseY();
         }
 
         if (direction.toString().equals("S")) {
-
-            if(y == 0) {
-                this.y = 9;
-            } else {
-                this.y--;
-            }
+            position.decreaseY();
         }
 
         if (direction.toString().equals("E")) {
-            if(x == 9) {
-                this.x = 0;
-            } else {
-                this.x++;
-            }
+            position.increaseX();
         }
 
         if (direction.toString().equals("W")) {
-
-            if(x == 0) {
-                this.x = 9;
-            } else {
-                this.x--;
-            }
+            position.decreaseX();
         }
 
     }
