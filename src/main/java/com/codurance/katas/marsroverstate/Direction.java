@@ -4,7 +4,7 @@ public abstract class Direction {
 
     protected MarsRover context;
 
-    public void setContext(MarsRover context) {
+    public Direction(MarsRover context) {
         this.context = context;
     }
 

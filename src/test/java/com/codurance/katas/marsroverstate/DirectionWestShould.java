@@ -10,8 +10,7 @@ public class DirectionWestShould {
     void when_turning_right_should_set_direction_north() {
 
         MarsRover marsRover = new MarsRover();
-        DirectionWest directionWest = new DirectionWest();
-        directionWest.setContext(marsRover);
+        DirectionWest directionWest = new DirectionWest(marsRover);
 
         directionWest.turnRight();
 
@@ -23,8 +22,7 @@ public class DirectionWestShould {
     void when_turning_left_should_set_direction_south() {
 
         MarsRover marsRover = new MarsRover();
-        DirectionWest directionWest = new DirectionWest();
-        directionWest.setContext(marsRover);
+        DirectionWest directionWest = new DirectionWest(marsRover);
 
         directionWest.turnLeft();
 

@@ -3,10 +3,14 @@ package com.codurance.katas.marsroverstate;
 public class DirectionWest extends Direction {
 
 
+    public DirectionWest(MarsRover context) {
+        super(context);
+    }
+
     @Override
     public void turnRight() {
 
-        DirectionNorth newDirection = new DirectionNorth();
+        DirectionNorth newDirection = new DirectionNorth(this.context);
         this.context.setDirection(newDirection);
 
     }
@@ -14,8 +18,13 @@ public class DirectionWest extends Direction {
     @Override
     public void turnLeft() {
 
-        DirectionSouth newDirection = new DirectionSouth();
+        DirectionSouth newDirection = new DirectionSouth(this.context);
         this.context.setDirection(newDirection);
 
+    }
+
+    @Override
+    public String toString() {
+        return "W";
     }
 }
