@@ -30,11 +30,8 @@ public class DirectionSouthShould {
     @Test
     void when_moving_should_decreaseY() {
 
-        MarsRover marsRover = new MarsRover();
-        DirectionSouth directionSouth = new DirectionSouth(marsRover);
+        Position vector = direction.move();
 
-        directionSouth.move();
-
-        assertThat(marsRover.getPosition().getY()).isEqualTo(9);
+        assertThat(vector).isEqualTo(new Position(0, -1));
     }
 }

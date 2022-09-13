@@ -22,9 +22,8 @@ public class MarsRover {
             if (command == 'L') {
                 direction.turnLeft();
             }
-
             if (command == 'M') {
-                direction.move();
+                position.add(direction.move());
             }
         }
 

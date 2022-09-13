@@ -30,8 +30,8 @@ public class DirectionEastShould {
     @Test
     void when_moving_should_increaseX() {
 
-        direction.move();
+        Position vector = direction.move();
 
-        assertThat(marsRover.getPosition().getX()).isEqualTo(1);
+        assertThat(vector).isEqualTo(new Position(1, 0));
     }
 }

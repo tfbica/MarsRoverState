@@ -19,36 +19,43 @@ public class Position {
         return y;
     }
 
-    public void increaseY() {
-        this.y++;
-        if (y == GRID_HEIGHT) {
-            this.y = 0;
-        }
-    }
+    public void add(Position vector) {
 
-    public void decreaseY() {
-        this.y--;
-        if (y < 0) {
-            this.y = GRID_HEIGHT - 1;
-        }
-    }
-
-    public void increaseX() {
-        this.x++;
-        if (x == GRID_WIDTH) {
+        this.x += vector.x;
+        if (x >= GRID_WIDTH) {
             this.x = 0;
-        }
-    }
-
-    public void decreaseX() {
-        this.x--;
-        if (x < 0) {
+        } else if (x < 0) {
             this.x = GRID_WIDTH - 1;
+        }
+
+        this.y += vector.y;
+        if (y >= GRID_HEIGHT) {
+            this.y = 0;
+        } else if (y < 0) {
+            this.y = GRID_HEIGHT - 1;
         }
     }
 
     @Override
     public String toString() {
         return x + ":" + y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Position position = (Position) o;
+
+        if (x != position.x) return false;
+        return y == position.y;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = x;
+        result = 31 * result + y;
+        return result;
     }
 }

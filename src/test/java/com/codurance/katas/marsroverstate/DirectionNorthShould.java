@@ -30,11 +30,8 @@ class DirectionNorthShould {
     @Test
     void when_moving_should_increaseY() {
 
-        MarsRover marsRover = new MarsRover();
-        DirectionNorth directionNorth = new DirectionNorth(marsRover);
+        Position vector = direction.move();
 
-        directionNorth.move();
-
-        assertThat(marsRover.getPosition().getY()).isEqualTo(1);
+        assertThat(vector).isEqualTo(new Position(0, 1));
     }
 }

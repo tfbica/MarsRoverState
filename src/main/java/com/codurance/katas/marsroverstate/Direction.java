@@ -12,6 +12,6 @@ public abstract class Direction {
 
     public abstract void turnLeft();
 
-    public abstract void move();
+    public abstract Position move();
 
 }
