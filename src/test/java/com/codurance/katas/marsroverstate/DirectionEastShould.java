@@ -30,5 +30,14 @@ public class DirectionEastShould {
                 .isEqualTo(DirectionNorth.class);
     }
 
+    @Test
+    void when_moving_should_increaseX() {
 
+        MarsRover marsRover = new MarsRover();
+        DirectionEast directionEast = new DirectionEast(marsRover);
+
+        directionEast.move();
+
+        assertThat(marsRover.getPosition().getX()).isEqualTo(1);
+    }
 }

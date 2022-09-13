@@ -29,4 +29,14 @@ public class DirectionSouthShould {
         assertThat(marsRover.getDirection().getClass())
                 .isEqualTo(DirectionEast.class);
     }
+    @Test
+    void when_moving_should_decreaseY() {
+
+        MarsRover marsRover = new MarsRover();
+        DirectionSouth directionSouth = new DirectionSouth(marsRover);
+
+        directionSouth.move();
+
+        assertThat(marsRover.getPosition().getY()).isEqualTo(9);
+    }
 }

@@ -30,4 +30,15 @@ public class DirectionWestShould {
                 .isEqualTo(DirectionSouth.class);
     }
 
+    @Test
+    void when_moving_should_decreaseX() {
+
+        MarsRover marsRover = new MarsRover();
+        DirectionWest directionWest = new DirectionWest(marsRover);
+
+        directionWest.move();
+
+        assertThat(marsRover.getPosition().getX()).isEqualTo(9);
+    }
+
 }

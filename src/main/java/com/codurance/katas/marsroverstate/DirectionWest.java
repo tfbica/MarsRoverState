@@ -24,6 +24,11 @@ public class DirectionWest extends Direction {
     }
 
     @Override
+    public void move() {
+        this.context.getPosition().decreaseX();
+    }
+
+    @Override
     public String toString() {
         return "W";
     }

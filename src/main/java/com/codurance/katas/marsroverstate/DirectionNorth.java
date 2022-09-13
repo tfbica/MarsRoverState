@@ -22,6 +22,13 @@ public class DirectionNorth extends Direction {
     }
 
     @Override
+    public void move() {
+
+        this.context.getPosition().increaseY();
+
+    }
+
+    @Override
     public String toString() {
         return "N";
     }

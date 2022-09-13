@@ -24,6 +24,11 @@ public class DirectionEast extends Direction {
     }
 
     @Override
+    public void move() {
+        this.context.getPosition().increaseX();
+    }
+
+    @Override
     public String toString() {
         return "E";
     }
