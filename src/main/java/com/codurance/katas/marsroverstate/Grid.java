@@ -9,6 +9,9 @@ public class Grid {
     public Grid(HashSet<Position> obstacles) {
         this.obstacles = obstacles;
     }
+    public Grid() {
+        this(new HashSet<>());
+    }
 
     public boolean hasObstacleAt(Position targetPosition) {
         return obstacles.contains(targetPosition);

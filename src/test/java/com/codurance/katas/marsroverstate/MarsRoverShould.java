@@ -4,7 +4,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.HashSet;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -43,8 +42,8 @@ public class MarsRoverShould {
 
     @ParameterizedTest
     @CsvSource({
-            // Rotate Mars Rover
             "'0,1', M, O:0:0:N",
+            "'2,0;1,0', RMM, O:0:0:E",
             "'0,3', MMMM, O:0:2:N",
             "'1,2', RMRRRMMM, O:1:1:N",
             "'0,9', RRMMMMM, O:0:0:S",

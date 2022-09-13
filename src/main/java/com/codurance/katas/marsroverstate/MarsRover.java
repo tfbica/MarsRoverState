@@ -4,12 +4,14 @@ import java.util.HashSet;
 
 public class MarsRover {
 
+    public static final String OBSTACLE_PREFIX = "O";
+    public static final String SEPARATOR = ":";
     private Position position = new Position(0, 0);
     private Direction direction = new DirectionNorth(this);
     private final Grid grid;
 
     public MarsRover() {
-        this(new Grid(new HashSet<>()));
+        this(new Grid());
     }
     public MarsRover(Grid grid) {
         this.grid = grid;
@@ -31,13 +33,21 @@ public class MarsRover {
             if (command == 'M') {
                 Position newPosition = calculateNewPosition();
                 if (grid.hasObstacleAt(newPosition)) {
-                    return "O:" + position + ":" + direction;
+                    return buildResultWithObstacle();
                 }
                 position = newPosition;
             }
         }
 
-        return position + ":" + direction;
+        return buildResult();
+    }
+
+    private String buildResultWithObstacle() {
+        return OBSTACLE_PREFIX + SEPARATOR + buildResult();
+    }
+
+    private String buildResult() {
+        return position + SEPARATOR + direction;
     }
 
     private Position calculateNewPosition() {
