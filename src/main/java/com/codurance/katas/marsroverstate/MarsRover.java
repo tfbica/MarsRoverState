@@ -9,11 +9,7 @@ public class MarsRover {
         return position;
     }
 
-    public Direction getDirection() {
-        return direction;
-    }
-
-    public void setDirection(Direction direction) {
+    void setDirection(Direction direction) {
         this.direction = direction;
     }
 

@@ -6,28 +6,25 @@ import static org.fest.assertions.Assertions.assertThat;
 
 class DirectionNorthShould {
 
+    private final MarsRover marsRover = new MarsRover();
+    private final DirectionNorth direction = new DirectionNorth(marsRover);
+
     @Test
     void when_turning_right_should_set_direction_east() {
 
-        MarsRover marsRover = new MarsRover();
-        DirectionNorth directionNorth = new DirectionNorth(marsRover);
+        direction.turnRight();
 
-        directionNorth.turnRight();
-
-        assertThat(marsRover.getDirection().getClass())
-                .isEqualTo(DirectionEast.class);
+        assertThat(marsRover.execute(""))
+                .isEqualTo("0:0:E");
     }
 
     @Test
     void when_turning_left_should_set_direction_west() {
 
-        MarsRover marsRover = new MarsRover();
-        DirectionNorth directionNorth = new DirectionNorth(marsRover);
+        direction.turnLeft();
 
-        directionNorth.turnLeft();
-
-        assertThat(marsRover.getDirection().getClass())
-                .isEqualTo(DirectionWest.class);
+        assertThat(marsRover.execute(""))
+                .isEqualTo("0:0:W");
     }
 
     @Test
